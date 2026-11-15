@@ -1,0 +1,43 @@
+{
+  "name": "objectversedex-christmas-calendar",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ObjectVerse-Dex Christmas Calendar Desktop Edition",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win portable",
+    "dist:installer": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^33.4.11",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "fun.objectversedex.christmascalendar",
+    "productName": "ObjectVerse-Dex Christmas Calendar",
+    "files": [
+      "main.js",
+      "game/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        "portable"
+      ],
+      "artifactName": "ObjectVerseDex-Christmas-Calendar-${version}.${ext}",
+      "icon": "assets/calendar-icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "ObjectVerse-Dex Christmas Calendar"
+    }
+  }
+}
